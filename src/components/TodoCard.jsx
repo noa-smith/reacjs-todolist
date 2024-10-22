@@ -1,7 +1,23 @@
 import React from 'react'
 
-export default function TodoCard() {
+export default function TodoCard(props) {
+    const {children, handleDeleteTodo, index, handleEditTodo} = props
   return (
-    <div>TodoCard</div>
+    <div>
+        <li className='todoItem'>
+            {children}
+            <div className='actionContainer'></div>
+                <button onClick={() => {
+                handleEditTodo(index)}}>
+                    
+                    <i className="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button onClick={() =>{ 
+                    handleDeleteTodo(index)
+                    }}>
+                    <i className="fa-solid fa-trash"></i>
+                </button>
+                    </li>
+    </div>
   )
 }
